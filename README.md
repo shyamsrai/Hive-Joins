@@ -308,4 +308,11 @@ Getting log thread is interrupted, since query is done!
 10 rows selected (7.072 seconds)
 ```
 
+## Exercise
+> Try inserting rows in each table with the following consideration:
+- Insert data into students table with id that does not exist in enrollment (student_id)
+- Insert data into enrollment with student_id that does not exist in students table (id)
+- Re-run all the queries stated in prior examples for each type of joins and evaluate the results.
+
+
 
