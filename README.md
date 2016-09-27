@@ -23,7 +23,7 @@ insert into enrollment values (1001,'Maths'),(1001,'Science'),(1001,'History'),(
 select students.id,students.name, enrollment.subject from students join enrollment on students.id = enrollment.student_id;
 ```
 
-#### Resulting Output should look something like this
+##### Resulting Output should look something like this
 ```
 Query ID = hive_20160926223103_c7aaccc7-e04d-4ada-8a07-6d250839f852
 Total jobs = 1
@@ -66,6 +66,38 @@ This JOIN method retrieves all the matching rows from table on LEFT side of the 
 select students.id,students.name, enrollment.subject from enrollment left join students  on students.id = enrollment.student_id;
 ```
 
+##### Resulting output would look something like
+
+```
+INFO  : Session is already open
+DEBUG : Adding local resource: scheme: "hdfs" host: "master.hortonworks.com.hortonworks.com" port: 8020 file: "/tmp/hive/hive/_tez_session_dir/9be4477d-e925-44b2-871e-a917098d95b9/hive-hcatalog-core.jar"
+INFO  : Dag name: select students.id,st...nrollment.student_id(Stage-1)
+DEBUG : DagInfo: {"context":"Hive","description":"select students.id,students.name, enrollment.subject from enrollment left join students  on students.id = enrollment.student_id"}
+DEBUG : Setting Tez DAG access for hive
+INFO  : 
+
+INFO  : Status: Running (Executing on YARN cluster with App id application_1474695223471_0016)
+
+INFO  : Map 1: 0/1	Map 2: 0/1	
+INFO  : Map 1: 0(+1)/1	Map 2: 0/1	
+INFO  : Map 1: 0(+1)/1	Map 2: 0(+1)/1	
+INFO  : Map 1: 0(+1)/1	Map 2: 1/1	
+INFO  : Map 1: 1/1	Map 2: 1/1	
+Getting log thread is interrupted, since query is done!
++--------------+----------------+---------------------+--+
+| students.id  | students.name  | enrollment.subject  |
++--------------+----------------+---------------------+--+
+| 1001         | Alex           | Maths               |
+| 1001         | Alex           | Science             |
+| 1001         | Alex           | History             |
+| 1002         | Ryan           | Physics             |
+| 1002         | Ryan           | Maths               |
+| 1003         | Justin         | Physics             |
+| 1003         | Justin         | Social Studies      |
+| NULL         | NULL           | Maths               |
++--------------+----------------+---------------------+--+
+8 rows selected (6.871 seconds)
+```
 
 
 
