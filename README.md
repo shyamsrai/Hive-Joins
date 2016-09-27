@@ -23,7 +23,7 @@ insert into enrollment values (1001,'Maths'),(1001,'Science'),(1001,'History'),(
 select students.id,students.name, enrollment.subject from students join enrollment on students.id = enrollment.student_id;
 ```
 
-> Resulting Output should look something like this
+#### Resulting Output should look something like this
 ```
 Query ID = hive_20160926223103_c7aaccc7-e04d-4ada-8a07-6d250839f852
 Total jobs = 1
