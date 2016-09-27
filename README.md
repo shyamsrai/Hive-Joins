@@ -10,12 +10,12 @@ Retrieving data from two tables with a common joining column. For instance, join
 #### Create tables 
 ```
 create table students (id int, name string) row format delimited fields terminated by ',' stored as orc; 
-create table enrollment (student_id int, subject string) row format delimited fields terminated by ',' stored as orc; <br>
+create table enrollment (student_id int, subject string) row format delimited fields terminated by ',' stored as orc;
 ```
 #### Insert sample data 
 ```
 insert into students values (1001,'Alex'),(1002,'Ryan'),(1003,'Justin'); 
-insert into enrollment values (1001,'Maths'),(1001,'Science'),(1001,'History'),(1002,'Physics'),(1002,'Maths'),(1003,'Physics'),(1003,'Social Studies'),(1004,'Maths'); <br>
+insert into enrollment values (1001,'Maths'),(1001,'Science'),(1001,'History'),(1002,'Physics'),(1002,'Maths'),(1003,'Physics'),(1003,'Social Studies'),(1004,'Maths'); 
 ```
 
 #### Querying the data using "Equi Join" should result with rows between the two tables where student ID is common
@@ -23,7 +23,7 @@ insert into enrollment values (1001,'Maths'),(1001,'Science'),(1001,'History'),(
 select students.id,students.name, enrollment.subject from students join enrollment on students.id = enrollment.student_id;
 ```
 
-#### Resulting Output should look something like this
+> Resulting Output should look something like this
 ```
 Query ID = hive_20160926223103_c7aaccc7-e04d-4ada-8a07-6d250839f852
 Total jobs = 1
@@ -52,6 +52,23 @@ Time taken: 7.465 seconds, Fetched: 7 row(s)
 ```
 
 NOTICE that enrollment table has one entry where student_id column has an entry 1004, however, since it is not available within table "students" the entry for that table will not be included, thus only values equaling the other table.
+
+
+
+## Left Join
+
+This JOIN method retrieves all the matching rows from table on LEFT side of the keyword "LEFT JOIN" & unique rows from the table on the right side. Using the same example as the rows in prior example.
+
+
+#### Querying data using "LEFT JOIN" 
+
+```
+select students.id,students.name, enrollment.subject from enrollment left join students  on students.id = enrollment.student_id;
+```
+
+
+
+
 
 
 
