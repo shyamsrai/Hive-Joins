@@ -72,15 +72,13 @@ select students.id,students.name, enrollment.subject from enrollment left join s
 INFO  : Session is already open
 DEBUG : Adding local resource: scheme: "hdfs" host: "master.hortonworks.com.hortonworks.com" port: 8020 file: "/tmp/hive/hive/_tez_session_dir/9be4477d-e925-44b2-871e-a917098d95b9/hive-hcatalog-core.jar"
 INFO  : Dag name: select students.id,st...nrollment.student_id(Stage-1)
-DEBUG : DagInfo: {"context":"Hive","description":"select students.id,students.name, enrollment.subject from enrollment left join students  on students.id = enrollment.student_id"}
+DEBUG : DagInfo: {"context":"Hive","description":"select students.id,students.name, enrollment.subject from students left join enrollment on students.id = enrollment.student_id"}
 DEBUG : Setting Tez DAG access for hive
 INFO  : 
 
 INFO  : Status: Running (Executing on YARN cluster with App id application_1474695223471_0016)
 
-INFO  : Map 1: 0/1	Map 2: 0/1	
-INFO  : Map 1: 0(+1)/1	Map 2: 0/1	
-INFO  : Map 1: 0(+1)/1	Map 2: 0(+1)/1	
+INFO  : Map 1: 0/1	Map 2: 0(+1)/1	
 INFO  : Map 1: 0(+1)/1	Map 2: 1/1	
 INFO  : Map 1: 1/1	Map 2: 1/1	
 Getting log thread is interrupted, since query is done!
@@ -88,15 +86,15 @@ Getting log thread is interrupted, since query is done!
 | students.id  | students.name  | enrollment.subject  |
 +--------------+----------------+---------------------+--+
 | 1001         | Alex           | Maths               |
-| 1001         | Alex           | Science             |
 | 1001         | Alex           | History             |
+| 1001         | Alex           | Science             |
 | 1002         | Ryan           | Physics             |
 | 1002         | Ryan           | Maths               |
 | 1003         | Justin         | Physics             |
 | 1003         | Justin         | Social Studies      |
-| NULL         | NULL           | Maths               |
 +--------------+----------------+---------------------+--+
-8 rows selected (6.871 seconds)
+7 rows selected (1.714 seconds)
+
 ```
 
 
