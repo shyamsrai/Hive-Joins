@@ -57,10 +57,7 @@ NOTICE that enrollment table has one entry where student_id column has an entry 
 
 ## Left Join
 
-This JOIN method retrieves all the matching rows from table on LEFT side of the keyword "LEFT JOIN" & unique rows from the table on the right side. Using the same example as the rows in prior example.
-
-
-#### Querying data using "LEFT JOIN" 
+This JOIN method retrieves all the rows from table on LEFT side of the keyword "LEFT JOIN" &x` unique rows from the table on the right side. Using the same example as the rows in prior example.
 
 ```
 select students.id,students.name, enrollment.subject from enrollment left join students  on students.id = enrollment.student_id;
@@ -97,6 +94,9 @@ Getting log thread is interrupted, since query is done!
 
 ```
 
+## Right Join
+
+During this JOIN all rows for the table after the keyword "RIGHT JOIN" are displayed regardless of a match & any matching rows on the table to the left. 
 
 
 
