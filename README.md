@@ -4,11 +4,10 @@ Primer introduction to JOINs in Hive Database. This repository includes hands on
 
 ## Equijoin/Inner join/Simple Join
 Known with different names, same type of join.
-
-### Equi-Join 
+ 
 Retrieving data from two tables with a common joining column. For instance, joining student ID with table enrollment (student ID) to find out how many students enrolled for a particular course. 
 
-##### Create tables 
+#### Create tables 
 ```
 create table students (id int, name string) row format delimited fields terminated by ',' stored as orc; 
 create table enrollment (student_id int, subject string) row format delimited fields terminated by ',' stored as orc; <br>
@@ -52,8 +51,7 @@ OK
 Time taken: 7.465 seconds, Fetched: 7 row(s)
 ```
 
-
-
 NOTICE that enrollment table has one entry where student_id column has an entry 1004, however, since it is not available within table "students" the entry for that table will not be included, thus only values equaling the other table.
+
 
 
